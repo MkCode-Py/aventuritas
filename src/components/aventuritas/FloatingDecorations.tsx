@@ -1,4 +1,8 @@
-const Star = ({ className = "" }: { className?: string }) => (
+import { SVGProps } from "react";
+
+type DecoProps = SVGProps<SVGSVGElement> & { className?: string };
+
+const Star = ({ className = "", ...props }: DecoProps) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" />
   </svg>
