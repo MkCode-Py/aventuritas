@@ -1,33 +1,30 @@
 
 
-## Aventuritas Homepage Plan
+## Diagnosis & Fix Plan
 
-### Visual System
-- **Background**: Warm cream (#FAF8F3) with the uploaded pattern image as a subtle repeating texture, low opacity
-- **Colors**: Deep navy text, warm golden yellow (#F5A623) CTAs, soft sage green (#A8C5A0), baby blue (#B5D5E8), pastel blush accents
-- **Typography**: Rounded, friendly font feel using system + Google Fonts (Nunito/Quicksand for headings, clean sans for body)
-- **Cards**: Fully rounded corners (16-20px), soft drop shadows, white/cream backgrounds
-- **Decorations**: CSS-based stars, sparkles, hearts, clouds as subtle floating accents — playful but not cluttered
-- **Buttons**: Rounded pill shapes, warm yellow primary, soft hover transitions
-- **Spacing**: Generous padding, airy feel, mobile-first stacking
+### Root Cause
+The blank screen was caused by a **stale Vite dependency cache** (`node_modules/.vite/`) containing a pre-optimized copy of `@tanstack/react-query` that bundled its own React instance, creating a duplicate React runtime. This made `useEffect` resolve to `null` inside `QueryClientProvider`.
 
-### Section Structure
-1. **Sticky Header** — Logo (uploaded PNG), language selector (🌐 ES/EN), hamburger menu on mobile with slide-out drawer
-2. **Hero** — "Pequeños momentos hoy. Grandes recuerdos para toda la vida." with emotional subtext, golden CTA, decorative stars/clouds, warm atmosphere
-3. **Trust Strip** — 3-4 icon cards: Libros elegidos, Actividades complementarias, Guía para padres, Experiencia mensual
-4. **Plans Section** — 3 premium cards (Esencial, Encanto, Descubrimiento) with features, "Próximamente" CTAs, "Más elegido" badge on Encanto
-5. **How It Works** — 3-4 step visual flow: Elegimos → Llega a casa → Comparten → Recuerdos
-6. **Benefits** — Soft illustrated grid: lectura, vínculo, imaginación, apoyo, menos pantallas, recuerdos
-7. **Gift Section** — "Regalo con propósito" warm block targeting abuelos/padrinos
-8. **FAQ** — Accordion with 5 key questions, friendly tone
-9. **Final CTA** — Emotionally warm closing with subscription invite
-10. **Footer** — Brand, social links, contact
+### Current Status
+- The cache was already cleared in the previous turn (`rm -rf node_modules/.vite`)
+- `src/main.tsx` was touched to trigger a full reload
+- **The build succeeds** (`npx vite build` completes with 0 errors)
+- **The dev server is running** and serving HTML correctly
+- All assets exist (`aventuritas-logo.png`, `aventuritas-bg-pattern.png`)
+- No runtime errors are currently being reported
 
-### Implementation
-- All copy in Spanish (Paraguay)
-- Logo from uploaded asset copied to src/assets
-- Background pattern copied to public for CSS use
-- Clean component architecture: Header, Hero, TrustStrip, Plans, HowItWorks, Benefits, GiftSection, FAQ, FinalCTA, Footer
-- Mobile-first responsive design throughout
-- Subtle CSS animations for decorative elements
+### What Needs to Happen
+
+**Step 1: Force a clean restart of the dev server**
+The Vite dev server may still be serving stale pre-bundled dependencies from memory even though the cache directory was deleted. Touch `vite.config.ts` to force a full page reload and re-optimization.
+
+**Step 2: Verify rendering**
+Confirm the homepage loads with all 10 sections visible and no console errors.
+
+**Step 3: Quick visual/code polish pass**
+Review each section component for any minor issues (overflow, spacing, missing styles) and fix if found. No redesign — just stabilization and polish within the approved brand direction.
+
+### Files to modify
+- `vite.config.ts` — touch to force reload (no content change needed)
+- Any component files only if broken rendering is found after restart
 
