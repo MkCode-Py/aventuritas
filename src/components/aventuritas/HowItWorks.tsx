@@ -35,15 +35,15 @@ const HowItWorks = () => (
               key={step.title}
               className="flex gap-4 p-6 rounded-3xl shadow-sm"
               style={{
-                backgroundColor: `hsl(${c.bg} / 0.55)`,
+                backgroundColor: `hsl(${c.bg} / 0.3)`,
                 borderWidth: 1,
-                borderColor: `hsl(${c.border} / 0.6)`,
+                borderColor: `hsl(${c.border} / 0.35)`,
                 backdropFilter: 'blur(4px)',
               }}
             >
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: `hsl(${c.icon} / 0.35)` }}
+                style={{ backgroundColor: `hsl(${c.icon} / 0.2)` }}
               >
                 <step.icon className="w-5 h-5" style={{ color: `hsl(${c.icon})` }} />
               </div>

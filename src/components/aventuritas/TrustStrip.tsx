@@ -41,15 +41,15 @@ const TrustStrip = () => (
               key={item.title}
               className="flex flex-col items-center text-center p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow"
               style={{
-                backgroundColor: `hsl(${c.bg} / 0.55)`,
+                backgroundColor: `hsl(${c.bg} / 0.3)`,
                 borderWidth: 1,
-                borderColor: `hsl(${c.border} / 0.6)`,
+                borderColor: `hsl(${c.border} / 0.35)`,
                 backdropFilter: 'blur(4px)',
               }}
             >
               <div
                 className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
-                style={{ backgroundColor: `hsl(${c.icon} / 0.35)` }}
+                style={{ backgroundColor: `hsl(${c.icon} / 0.2)` }}
               >
                 <item.icon className="w-6 h-6" style={{ color: `hsl(${c.icon})` }} />
               </div>
