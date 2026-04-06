@@ -41,9 +41,9 @@ const TrustStrip = () => (
               key={item.title}
               className="flex flex-col items-center text-center p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow"
               style={{
-                backgroundColor: `hsl(${c.bg} / 0.55)`,
+                backgroundColor: `hsl(${c.bg} / 0.3)`,
                 borderWidth: 1,
-                borderColor: `hsl(${c.border} / 0.6)`,
+                borderColor: `hsl(${c.border} / 0.35)`,
                 backdropFilter: 'blur(4px)',
               }}
             >
