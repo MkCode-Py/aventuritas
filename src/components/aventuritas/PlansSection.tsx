@@ -13,27 +13,28 @@ interface PlanProps {
 }
 
 const PlanCard = ({ name, tagline, features, highlighted, badge, color }: PlanProps) => (
-  <div
-    className="relative flex flex-col rounded-3xl p-6 md:p-8 transition-all h-full"
-    style={{
-      backgroundColor: `hsl(${color.bg})`,
-      borderWidth: highlighted ? 2 : 1,
-      borderColor: `hsl(${color.border})`,
-      boxShadow: highlighted
-        ? `0 8px 30px -8px hsl(${color.border} / 0.4)`
-        : `0 2px 12px -4px hsl(${color.border} / 0.25)`,
-    }}
-  >
+  <div className="relative flex flex-col h-full" style={{ paddingTop: badge ? 14 : 0 }}>
     {badge && (
-      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
         <span
-          className="inline-flex items-center gap-1 px-4 py-1 rounded-full text-xs font-bold shadow-md text-white"
+          className="inline-flex items-center gap-1.5 px-5 py-1.5 rounded-full text-xs font-bold shadow-lg text-white whitespace-nowrap"
           style={{ backgroundColor: `hsl(${color.accent})` }}
         >
-          <Star className="w-3 h-3" /> {badge}
+          <Star className="w-3.5 h-3.5 flex-shrink-0" /> {badge}
         </span>
       </div>
     )}
+    <div
+      className="relative flex flex-col rounded-3xl p-6 md:p-8 transition-all flex-1"
+      style={{
+        backgroundColor: `hsl(${color.bg})`,
+        borderWidth: highlighted ? 2 : 1,
+        borderColor: `hsl(${color.border})`,
+        boxShadow: highlighted
+          ? `0 8px 30px -8px hsl(${color.border} / 0.4)`
+          : `0 2px 12px -4px hsl(${color.border} / 0.25)`,
+      }}
+    >
 
     <h3 className="font-heading font-extrabold text-xl md:text-2xl text-foreground mb-1 mt-2">{name}</h3>
     <p className="text-sm text-muted-foreground mb-6">{tagline}</p>
@@ -53,6 +54,7 @@ const PlanCard = ({ name, tagline, features, highlighted, badge, color }: PlanPr
     >
       Próximamente
     </button>
+    </div>
   </div>
 );
 
