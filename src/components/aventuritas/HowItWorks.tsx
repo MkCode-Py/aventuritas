@@ -43,7 +43,7 @@ const HowItWorks = () => (
             >
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: `hsl(${c.icon} / 0.35)` }}
+                style={{ backgroundColor: `hsl(${c.icon} / 0.2)` }}
               >
                 <step.icon className="w-5 h-5" style={{ color: `hsl(${c.icon})` }} />
               </div>

@@ -49,7 +49,7 @@ const TrustStrip = () => (
             >
               <div
                 className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
-                style={{ backgroundColor: `hsl(${c.icon} / 0.35)` }}
+                style={{ backgroundColor: `hsl(${c.icon} / 0.2)` }}
               >
                 <item.icon className="w-6 h-6" style={{ color: `hsl(${c.icon})` }} />
               </div>
