@@ -54,6 +54,7 @@ const PlanCard = ({ name, tagline, features, highlighted, badge, color }: PlanPr
     >
       Próximamente
     </button>
+    </div>
   </div>
 );
 
