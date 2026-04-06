@@ -27,12 +27,13 @@ const PlanCard = ({ name, tagline, features, highlighted, badge, color }: PlanPr
     <div
       className="relative flex flex-col rounded-3xl p-6 md:p-8 transition-all flex-1"
       style={{
-        backgroundColor: `hsl(${color.bg})`,
+        backgroundColor: `hsl(${color.bg} / 0.7)`,
         borderWidth: highlighted ? 2 : 1,
-        borderColor: `hsl(${color.border})`,
+        borderColor: `hsl(${color.border} / 0.75)`,
+        backdropFilter: 'blur(6px)',
         boxShadow: highlighted
-          ? `0 8px 30px -8px hsl(${color.border} / 0.4)`
-          : `0 2px 12px -4px hsl(${color.border} / 0.25)`,
+          ? `0 8px 30px -8px hsl(${color.border} / 0.3)`
+          : `0 2px 12px -4px hsl(${color.border} / 0.2)`,
       }}
     >
 
