@@ -36,9 +36,9 @@ const Benefits = () => (
               key={b.title}
               className="p-6 rounded-3xl shadow-sm hover:shadow-md transition-shadow text-center"
               style={{
-                backgroundColor: `hsl(${c.bg} / 0.55)`,
+                backgroundColor: `hsl(${c.bg} / 0.3)`,
                 borderWidth: 1,
-                borderColor: `hsl(${c.border} / 0.6)`,
+                borderColor: `hsl(${c.border} / 0.35)`,
                 backdropFilter: 'blur(4px)',
               }}
             >
