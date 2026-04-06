@@ -43,6 +43,35 @@
     --cream: 39 50% 97%;
     --navy: 220 60% 13%;
 
+    /* Card palette – 5 families (bg / border / icon) */
+    --card-sage-bg: 140 25% 91%;
+    --card-sage-border: 140 25% 82%;
+    --card-sage-icon: 140 25% 72%;
+
+    --card-blue-bg: 200 35% 91%;
+    --card-blue-border: 200 35% 82%;
+    --card-blue-icon: 200 35% 72%;
+
+    --card-blush-bg: 15 45% 92%;
+    --card-blush-border: 15 45% 84%;
+    --card-blush-icon: 15 40% 75%;
+
+    --card-butter-bg: 45 50% 91%;
+    --card-butter-border: 45 50% 83%;
+    --card-butter-icon: 45 50% 73%;
+
+    --card-lilac-bg: 270 25% 92%;
+    --card-lilac-border: 270 25% 84%;
+    --card-lilac-icon: 270 25% 74%;
+
+    /* Plan palette – slightly stronger */
+    --plan-sage-bg: 140 28% 87%;
+    --plan-sage-border: 140 28% 75%;
+    --plan-blue-bg: 200 38% 87%;
+    --plan-blue-border: 200 38% 75%;
+    --plan-blush-bg: 15 48% 88%;
+    --plan-blush-border: 15 48% 77%;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;

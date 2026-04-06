@@ -1,30 +1,17 @@
 import { Search, PackageOpen, BookHeart, Heart } from "lucide-react";
 
+const palette = [
+  { bg: "var(--card-blue-bg)", border: "var(--card-blue-border)", icon: "var(--card-blue-icon)" },
+  { bg: "var(--card-lilac-bg)", border: "var(--card-lilac-border)", icon: "var(--card-lilac-icon)" },
+  { bg: "var(--card-butter-bg)", border: "var(--card-butter-border)", icon: "var(--card-butter-icon)" },
+  { bg: "var(--card-sage-bg)", border: "var(--card-sage-border)", icon: "var(--card-sage-icon)" },
+];
+
 const steps = [
-  {
-    icon: Search,
-    title: "Elegimos para vos",
-    desc: "Seleccionamos libros y actividades según la edad y etapa de tu hijo.",
-    color: "bg-baby-blue/20",
-  },
-  {
-    icon: PackageOpen,
-    title: "Llega a tu casa",
-    desc: "Cada mes recibís una caja hermosa, lista para abrir juntos.",
-    color: "bg-sage/20",
-  },
-  {
-    icon: BookHeart,
-    title: "Leen y comparten",
-    desc: "Con la guía incluida, transformás unos minutos en un ritual de lectura.",
-    color: "bg-blush/20",
-  },
-  {
-    icon: Heart,
-    title: "Crean recuerdos",
-    desc: "Cada historia se convierte en un recuerdo compartido para toda la vida.",
-    color: "bg-primary/10",
-  },
+  { icon: Search, title: "Elegimos para vos", desc: "Seleccionamos libros y actividades según la edad y etapa de tu hijo." },
+  { icon: PackageOpen, title: "Llega a tu casa", desc: "Cada mes recibís una caja hermosa, lista para abrir juntos." },
+  { icon: BookHeart, title: "Leen y comparten", desc: "Con la guía incluida, transformás unos minutos en un ritual de lectura." },
+  { icon: Heart, title: "Crean recuerdos", desc: "Cada historia se convierte en un recuerdo compartido para toda la vida." },
 ];
 
 const HowItWorks = () => (
@@ -41,20 +28,34 @@ const HowItWorks = () => (
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {steps.map((step, i) => (
-          <div key={step.title} className="flex gap-4 p-6 rounded-3xl bg-card border border-border/40 shadow-sm">
-            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 ${step.color}`}>
-              <step.icon className="w-5 h-5 text-foreground" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold text-primary">{i + 1}.</span>
-                <h3 className="font-heading font-bold text-base text-foreground">{step.title}</h3>
+        {steps.map((step, i) => {
+          const c = palette[i % palette.length];
+          return (
+            <div
+              key={step.title}
+              className="flex gap-4 p-6 rounded-3xl shadow-sm"
+              style={{
+                backgroundColor: `hsl(${c.bg})`,
+                borderWidth: 1,
+                borderColor: `hsl(${c.border})`,
+              }}
+            >
+              <div
+                className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: `hsl(${c.icon} / 0.35)` }}
+              >
+                <step.icon className="w-5 h-5" style={{ color: `hsl(${c.icon})` }} />
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-bold text-primary">{i + 1}.</span>
+                  <h3 className="font-heading font-bold text-base text-foreground">{step.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
